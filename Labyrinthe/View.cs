@@ -2,6 +2,20 @@
 {
     internal class View
     {
+
+        public void AfficherLabyribnthe (Labyrinthe labyrinthe)
+        {
+            labyrinthe = new Labyrinthe (1,1);
+            for (int y = 0; y < 5; y++)
+            {
+                for (int x = 0; x < 10; x++)
+                {
+                    Console.Write(labyrinthe);
+                }
+                Console.WriteLine();
+            }
+        }
+    
         
         public void AfficherEntete()
         {

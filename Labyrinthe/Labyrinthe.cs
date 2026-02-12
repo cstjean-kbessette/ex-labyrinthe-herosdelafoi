@@ -26,6 +26,44 @@
             { '█','█','█','█','█','█','█','█','█','█','█','█','█','█','█','█','█','█','█','█' }
         };
 
+        private int PosX { get; set; }
+        private int PosY { get; set; }
 
+        public Labyrinthe(int posX, int posY)
+        {
+            this.PosX = posX;
+            this.PosY = posY;
+        }
+
+        public void MoveUp()
+        {
+            if (Map[PosY - 1, PosX] != '█')
+                PosY--;
+        }
+
+        public void MoveDown()
+        {
+            if (Map[PosY + 1, PosX] != '█')
+                PosY++;
+        }
+
+        public void MoveLeft()
+        {
+            if (Map[PosY, PosX - 1] != '█')
+                PosX--;
+        }
+
+        public void MoveRight()
+        {
+            if (Map[PosY, PosX +1] != '█')
+                 PosX++;
+        }
+
+        public bool isExit()
+        {
+            if (Map[PosY, PosX + 1] =='E')
+                return true;
+            return false;
+        }
     }
 }
