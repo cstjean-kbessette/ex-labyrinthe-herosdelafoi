@@ -2,7 +2,7 @@
 {
     internal class Labyrinthe
     {
-        public char[,] Map { get; set; } = new char[,]
+        public char[,] Map { get; private set; } = new char[,]
         {
             { '█','█','█','█','█','█','█','█','█','█','█','█','█','█','█','█','█','█','█','█' },
             { '█',' ',' ',' ','█',' ',' ',' ',' ',' ','█',' ',' ',' ',' ',' ','█',' ',' ','█' },
@@ -26,6 +26,42 @@
             { '█','█','█','█','█','█','█','█','█','█','█','█','█','█','█','█','█','█','█','█' }
         };
 
+        public int PosX { get; private set; }
+        public int PosY { get; private set; }
 
+        public Labyrinthe(int posX, int posY)
+        {
+            this.PosX = posX;
+            this.PosY = posY;
+        }
+
+        public void MoveUp()
+        {
+            if (Map[PosY - 1, PosX] != '█')
+                PosY--;
+        }
+
+        public void MoveDown()
+        {
+            if (Map[PosY + 1, PosX] != '█')
+                PosY++;
+        }
+
+        public void MoveLeft()
+        {
+            if (Map[PosY, PosX - 1] != '█')
+                PosX--;
+        }
+
+        public void MoveRight()
+        {
+            if (Map[PosY, PosX +1] != '█')
+                 PosX++;
+        }
+
+        public bool IsExit()
+        {
+            return Map[PosY, PosX] == 'E';
+        }
     }
 }

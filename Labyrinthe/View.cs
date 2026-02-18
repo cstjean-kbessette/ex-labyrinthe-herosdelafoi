@@ -2,6 +2,28 @@
 {
     internal class View
     {
+
+        public void AfficherLabyrinthe(Labyrinthe labyrinthe)
+        {
+            for (int i = 0; i < labyrinthe.Map.GetLength(0); i++)
+            {
+                for (int j = 0; j < labyrinthe.Map.GetLength(1); j++)
+                {
+                    if (i == labyrinthe.PosY && j == labyrinthe.PosX) 
+                    {
+                        Console.ForegroundColor = ConsoleColor.Cyan; 
+                        Console.Write('P'); 
+                        Console.ResetColor();
+                    }
+                    else
+                    {
+                        Console.Write(labyrinthe.Map[i, j]);
+                    }
+                }
+                Console.WriteLine();
+            }
+        }
+    
         
         public void AfficherEntete()
         {
