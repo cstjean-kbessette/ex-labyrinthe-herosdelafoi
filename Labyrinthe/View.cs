@@ -3,14 +3,22 @@
     internal class View
     {
 
-        public void AfficherLabyribnthe (Labyrinthe labyrinthe)
+        public void AfficherLabyrinthe(Labyrinthe labyrinthe)
         {
-            labyrinthe = new Labyrinthe (1,1);
-            for (int y = 0; y < 5; y++)
+            for (int i = 0; i < labyrinthe.Map.GetLength(0); i++)
             {
-                for (int x = 0; x < 10; x++)
+                for (int j = 0; j < labyrinthe.Map.GetLength(1); j++)
                 {
-                    Console.Write(labyrinthe);
+                    if (i == labyrinthe.PosY && j == labyrinthe.PosX) 
+                    {
+                        Console.ForegroundColor = ConsoleColor.Cyan; 
+                        Console.Write('P'); 
+                        Console.ResetColor();
+                    }
+                    else
+                    {
+                        Console.Write(labyrinthe.Map[i, j]);
+                    }
                 }
                 Console.WriteLine();
             }

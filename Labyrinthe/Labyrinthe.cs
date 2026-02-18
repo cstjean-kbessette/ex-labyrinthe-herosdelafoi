@@ -2,7 +2,7 @@
 {
     internal class Labyrinthe
     {
-        public char[,] Map { get; set; } = new char[,]
+        public char[,] Map { get; private set; } = new char[,]
         {
             { '█','█','█','█','█','█','█','█','█','█','█','█','█','█','█','█','█','█','█','█' },
             { '█',' ',' ',' ','█',' ',' ',' ',' ',' ','█',' ',' ',' ',' ',' ','█',' ',' ','█' },
@@ -26,8 +26,8 @@
             { '█','█','█','█','█','█','█','█','█','█','█','█','█','█','█','█','█','█','█','█' }
         };
 
-        private int PosX { get; set; }
-        private int PosY { get; set; }
+        public int PosX { get; private set; }
+        public int PosY { get; private set; }
 
         public Labyrinthe(int posX, int posY)
         {
@@ -59,11 +59,9 @@
                  PosX++;
         }
 
-        public bool isExit()
+        public bool IsExit()
         {
-            if (Map[PosY, PosX + 1] =='E')
-                return true;
-            return false;
+            return Map[PosY, PosX] == 'E';
         }
     }
 }
